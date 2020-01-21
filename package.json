@@ -1,7 +1,7 @@
 {
   "name": "@itinerisltd/twoohoh",
   "description": "HTTP status code checker",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "author": "TangRufus @TangRufus",
   "bin": {
     "twoohoh": "./bin/run"

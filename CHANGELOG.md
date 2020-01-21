@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.3](https://github.com/itinerisltd/twoohoh/tree/0.1.3) (2020-01-21)
+
+[Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.1.3...0.1.3)
+
+**Merged pull requests:**
+
+- Fix version flag [\#1](https://github.com/ItinerisLtd/twoohoh/pull/1) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.1.3](https://github.com/itinerisltd/twoohoh/tree/v0.1.3) (2020-01-16)
+
+[Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.1.2...v0.1.3)
+
 ## [v0.1.2](https://github.com/itinerisltd/twoohoh/tree/v0.1.2) (2020-01-16)
 
 [Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.1.1...v0.1.2)
