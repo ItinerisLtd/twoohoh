@@ -6,11 +6,9 @@ class ItinerisltdTwoohoh extends Command {
 
   static flags = {
     // add --version flag to show CLI version
-    version: flags.version({char: 'v'}),
-    help: flags.help({char: 'h'}),
+    version: flags.version(),
+    help: flags.help(),
   }
-
-  static strict = false;
 
   static args = [
     {name: 'url', required: true},
@@ -18,11 +16,20 @@ class ItinerisltdTwoohoh extends Command {
   ]
 
   async run() {
+    const count = this.argv.length
+
+    if (count < 1) {
+      return this._help()
+    }
+
+    if (this.argv[0] === '--version') {
+      return this._version()
+    }
+
     await Promise.all(
       this.argv.map(url => this.is200(url))
     )
 
-    const count = this.argv.length
     if (count > 1) {
       this.log(`Success: All (${this.argv.length}) URLs return 200 okay`)
     }
