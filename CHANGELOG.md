@@ -1,8 +1,16 @@
 # Changelog
 
-## [0.1.3](https://github.com/itinerisltd/twoohoh/tree/0.1.3) (2020-01-21)
+## [0.1.3](https://github.com/itinerisltd/twoohoh/tree/0.1.3) (2020-02-28)
 
-[Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.1.3...0.1.3)
+[Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.2.0...0.1.3)
+
+**Merged pull requests:**
+
+- Support basic auth [\#2](https://github.com/ItinerisLtd/twoohoh/pull/2) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.2.0](https://github.com/itinerisltd/twoohoh/tree/v0.2.0) (2020-01-21)
+
+[Full Changelog](https://github.com/itinerisltd/twoohoh/compare/v0.1.3...v0.2.0)
 
 **Merged pull requests:**
 
