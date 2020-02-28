@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import fetch from 'node-fetch'
+import fetch, {Headers, RequestInit} from 'node-fetch'
 
 class ItinerisltdTwoohoh extends Command {
   static description = 'HTTP status code checker'
@@ -8,8 +8,23 @@ class ItinerisltdTwoohoh extends Command {
     // add --version flag to show CLI version
     version: flags.version(),
     help: flags.help(),
+    username: flags.string({
+      char: 'u',
+      description: 'basic auth username',
+      env: 'TWOOHOH_USERNAME',
+      required: false,
+    }),
+    password: flags.string({
+      char: 'p',
+      description: 'basic auth password',
+      env: 'TWOOHOH_PASSWORD',
+      required: false,
+    }),
   }
 
+  static strict = false
+
+  // Wait for https://github.com/oclif/parser/pull/63
   static args = [
     {name: 'url', required: true},
     {name: '...urls'},
@@ -26,8 +41,20 @@ class ItinerisltdTwoohoh extends Command {
       return this._version()
     }
 
+    const {flags} = this.parse(ItinerisltdTwoohoh)
+    const {username, password} = flags
+
+    let options: RequestInit = {}
+    if (username && password) {
+      options = {
+        headers: new Headers({
+          Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`,
+        }),
+      }
+    }
+
     await Promise.all(
-      this.argv.map(url => this.is200(url))
+      this.argv.map(url => this.is200(url, options))
     )
 
     if (count > 1) {
@@ -35,8 +62,8 @@ class ItinerisltdTwoohoh extends Command {
     }
   }
 
-  is200(url: string) {
-    return fetch(url)
+  is200(url: string, options: RequestInit) {
+    return fetch(url, options)
     .catch((err: Error) => {
       this.error(`Fail to retrieve ${url}\n${err.name}: ${err.message}`)
     })
