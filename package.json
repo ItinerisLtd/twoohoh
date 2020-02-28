@@ -1,7 +1,7 @@
 {
   "name": "@itinerisltd/twoohoh",
   "description": "HTTP status code checker",
-  "version": "0.3.2",
+  "version": "0.3.0",
   "author": "TangRufus @TangRufus",
   "bin": {
     "twoohoh": "./bin/run"
@@ -45,7 +45,7 @@
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b",
     "test": "echo NO TESTS",
-    "preversion": "git push origin master && git push --tags"
+    "preversion": "npx doctoc README.md && git add README.md",
   },
   "types": "lib/index.d.ts"
 }
